@@ -1,0 +1,13 @@
+name: pull request actions
+on: 
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: checkout, 
+      uses: actions/checkout@v2
+    - name: test,
+      run:  python basic_test.py
